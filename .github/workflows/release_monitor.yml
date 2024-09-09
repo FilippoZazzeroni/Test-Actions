@@ -29,9 +29,9 @@ jobs:
               id: check_changes
               run: |
                 if [[ $(git status --porcelain) ]]; then
-                    echo "changes_detected=false" >> $GITHUB_ENV 
+                    echo "changes_detected=true" >> $GITHUB_ENV 
                 else
-                    echo "changes_detected=true" >> $GITHUB_ENV
+                    echo "changes_detected=false" >> $GITHUB_ENV
                 fi
 
             - name: Commit if needed
