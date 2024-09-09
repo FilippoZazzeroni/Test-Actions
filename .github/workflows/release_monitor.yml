@@ -26,10 +26,13 @@ jobs:
                python main.py
             
             - name: Check changes
-              run: git diff-index --quiet HEAD || echo "::set-output name=changes_detected::true"
+              id: check_changes
+              run: |
+                git diff-index --quiet HEAD
+                echo "changes_detected=true" >> $GITHUB_ENV
 
             - name: Commit if needed
-              if: steps.check_changes.outputs.changes_detected == 'true':
+              if: env.changes_detected == 'true'
               run: |
                 git add .
                 git commit -m "update json"
