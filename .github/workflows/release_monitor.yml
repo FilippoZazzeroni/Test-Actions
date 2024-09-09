@@ -29,9 +29,9 @@ jobs:
               id: check_changes
               run: |
                 if [[ $(git status --porcelain) ]]; then
-                    echo "changes_detected=false"
+                    echo "changes_detected='false'"
                 else
-                    echo "changes_detected=true"
+                    echo "changes_detected='true'"
                 fi
 
             - name: Commit if needed
