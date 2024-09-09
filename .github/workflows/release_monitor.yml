@@ -24,3 +24,13 @@ jobs:
             - name: Run script to monitor releases
               run: |
                python main.py
+            
+            - name: Check changes
+              run: git diff-index --quiet HEAD || echo "::set-output name=changes_detected::true"
+
+            - name: Commit if needed
+              if: steps.check_changes.outputs.changes_detected == 'true':
+              run: |
+                git add .
+                git commit -m "update json"
+                git push
