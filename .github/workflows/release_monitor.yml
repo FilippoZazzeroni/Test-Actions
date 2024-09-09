@@ -32,6 +32,7 @@ jobs:
                   echo "changes_detected=false" >> $GITHUB_ENV
                 else
                   echo "changes_detected=true" >> $GITHUB_ENV
+                fi
 
             - name: Commit if needed
               if: env.changes_detected == 'true'
