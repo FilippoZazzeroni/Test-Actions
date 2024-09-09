@@ -34,7 +34,7 @@ jobs:
                     echo "changes_detected=false" >> $GITHUB_ENV
                 fi
 
-            - name: Commit if needed
+            - name: Commit if needed 
               if: env.changes_detected == 'true'
               run: |
                 git config --global user.name "github-actions[bot]"
