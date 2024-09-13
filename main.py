@@ -10,7 +10,7 @@ def fetch_latest_release_from_acorn() -> dict|None:
         return response.json()
     
 def save_latest_release_if_needed(data: dict) -> bool:
-    file = open("latest_acorn_release.json", "r+")
+    file = open("latest_acorn_release.json", "w")
     should_fetch_new_icons = False
     if len(file.read()) == 0:
         json.dump(data, fp=file, indent=4)
