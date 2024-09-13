@@ -18,7 +18,7 @@ def save_latest_release_if_needed(data: dict) -> bool:
     else:
         file.close()
         current_fetched_id = data["id"]
-        file = open("latest_acorn_release.json", "r+")
+        file = open("latest_acorn_release.json", "w")
         saved_id = json.load(file)["id"]
         if current_fetched_id == saved_id:
             # new release has to be fetched
