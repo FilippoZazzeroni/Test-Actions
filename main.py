@@ -11,21 +11,9 @@ def fetch_latest_release_from_acorn() -> dict|None:
     
 def save_latest_release_if_needed(data: dict) -> bool:
     file = open("latest_acorn_release.json", "w")
-    should_fetch_new_icons = False
-    if len(file.read()) == 0:
-        json.dump(data, fp=file, indent=4)
-        should_fetch_new_icons = True
-    else:
-        file.close()
-        current_fetched_id = data["id"]
-        file = open("latest_acorn_release.json", "w")
-        saved_id = json.load(file)["id"]
-        if current_fetched_id == saved_id:
-            # new release has to be fetched
-            json.dump(data, fp=file, indent=4)
-            should_fetch_new_icons = True
+    json.dump(data, fp=file)
     file.close()
-    return should_fetch_new_icons
+    return True
 
 latest_release_obj = fetch_latest_release_from_acorn()
 if latest_release_obj:
