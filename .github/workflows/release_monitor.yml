@@ -1,4 +1,4 @@
-name: Release Monitor
+name: Update Icons from Acorn repo
 
 on: 
     workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
                 git config --global user.name "github-actions[bot]"
                 git config --global user.email "github-actions[bot]@users.noreply.github.com"
                 git add .
-                git commit -m "Updated Firefox with Acorn repo"
+                git commit -m "Updated Icons from Acorn repo"
             
             - name: No changes detected
               if: env.changes_detected == 'false'
@@ -53,6 +53,6 @@ jobs:
               with:
                   author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
                   committer: GitHub <noreply@github.com>
-                  title: Update FX with Acorn icons
+                  title: Update Firefox icons from Acorn repo
                   branch: update-firefox-project-with-acorn-icons
                   token: ${{ secrets.GITHUB_TOKEN }}
