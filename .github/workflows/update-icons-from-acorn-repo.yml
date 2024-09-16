@@ -6,7 +6,7 @@ on:
       - cron: '0 12 * * SUN'
 
 jobs:
-    check_release:
+    download_icons_if_needed:
         runs-on: ubuntu-latest
 
         steps:
