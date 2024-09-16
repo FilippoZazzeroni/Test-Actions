@@ -25,7 +25,7 @@ jobs:
     
             - name: Run script to monitor releases
               run: |
-               python main.py
+               python sync_acorn_icons.py
             
             - name: Check changes
               id: check_changes
