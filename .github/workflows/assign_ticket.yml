@@ -11,5 +11,5 @@ jobs:
         if: contains(github.event.comment.body, '/assign')
         uses: kentaro-m/auto-assign-action@v2.0.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           assign_to: ${{ github.event.comment.user.login }}
