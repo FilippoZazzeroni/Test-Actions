@@ -1,0 +1,14 @@
+name: Self-Assign Issue
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  self-assign:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Assign issue to commenter
+      if: github.event.comment.body == 'assign to me'
+      uses: actions-ecosystem/action-assign-issue@v1
+      with:
+        assignees: ${{ github.event.comment.user.login }}
