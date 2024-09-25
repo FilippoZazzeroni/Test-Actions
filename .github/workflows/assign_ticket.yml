@@ -1,13 +1,14 @@
-name: Assign Issue to Commenter
-on:
-  issue_comment:
-    types: [created]
+name: assign_review_by_comment by issue_comment
+on: [issue_comment, pull_request_review]
 
 jobs:
-  add_assignees:
+  assign_review_by_comment:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-ecosystem/action-add-assignees@v1
-        with:
-          github_token: ${{ secrets.github_token }}
-          assignees: ${{ github.event.comment.user }}
+    - name: assign_review_by_comment
+      # We recommend to use an arbitary latest version
+      # if you don't have any troubles.
+      # You can also specify `master`, but it sometimes might be broken.
+      uses: cats-oss/github-action-auto-assign@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
