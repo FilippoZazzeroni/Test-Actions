@@ -4,12 +4,10 @@ on:
     types: [created]
 
 jobs:
-  assign:
+  add_assignees:
     runs-on: ubuntu-latest
     steps:
-      - name: Assign issue to commenter
-        if: contains(github.event.comment.body, '/assign')
-        uses: kentaro-m/auto-assign-action@v2.0.0
+      - uses: actions-ecosystem/action-add-assignees@v1
         with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          assign_to: ${{ github.event.comment.user.login }}
+          github_token: ${{ secrets.github_token }}
+          assignees: ${{ github.event.comment.user }}
