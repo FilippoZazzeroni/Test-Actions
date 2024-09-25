@@ -2,7 +2,7 @@
 name: Contributor ticket
 about: Create a template for contributor ticket
 title: "[CONTRIBUTOR-OK]"
-labels: ''
+labels: contributor-ok
 assignees: ''
 
 ---
